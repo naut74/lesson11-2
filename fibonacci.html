@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+</head>
+<body>
+     <!-- 0,1,1,2,3,5,8,13,21,34,...   -->
+       
+    
+    <h1>Dãy Fibonacci</h1>
+    <p id="result"></p>
+
+    <script>
+        function fibonacci(n) {
+            let fibo = [0, 1];  // Bắt đầu dãy Fibonacci với 0 và 1
+            for (let i = 2; i < n; i++) {
+                fibo[i] = fibo[i - 1] + fibo[i - 2];  
+            }
+            return fibo;
+        }
+
+        let n =parseInt(prompt('Số lượng số Fibonacci muốn in ra')) ; 
+        let result = fibonacci(n);
+
+        document.getElementById('result').innerHTML = result.join(', ');  // Hiển thị dãy Fibonacci
+    </script> 
+</body>
+</html>

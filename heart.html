@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vẽ hình trái tim</title>
+</head>
+<body>
+    <h1>Vẽ hình trái tim bằng dấu *</h1>
+
+    <!-- Phần tử để hiển thị kết quả -->
+    <pre id="result"></pre> <!-- Sử dụng <pre> để giữ nguyên định dạng -->
+
+    <script>
+        let result = '';
+        let size = 12; // Độ lớn của trái tim
+
+        for (let i = size / 2; i <= size; i += 2) {
+            // In khoảng trắng trước phần đầu của trái tim
+            for (let j = 1; j < size - i; j += 2) {
+                result += ' ';
+            }
+            // In dấu * cho nửa bên trái của phần đầu trái tim
+            for (let j = 1; j <= i; j++) {
+                result += '*';
+            }
+            // In khoảng trắng giữa hai nửa của phần đầu trái tim
+            for (let j = 1; j <= size - i; j++) {
+                result += ' ';
+            }
+            // In dấu * cho nửa bên phải của phần đầu trái tim
+            for (let j = 1; j <= i; j++) {
+                result += '*';
+            }
+            result += '\n';
+        }
+
+        // In phần dưới của trái tim
+        for (let i = size; i >= 1; i-=2) {
+            // In khoảng trắng trước trái tim
+            for (let j = i; j < size; j++) {
+                result += ' ';
+            }
+            // In dấu * cho phần dưới trái tim
+            for (let j = 1; j <= (i * 2) - 1; j++) {
+                result += '*';
+            }
+            result += '\n';
+        }
+
+        // Hiển thị kết quả
+        document.getElementById('result').textContent = result;
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lãi kép</title>
+</head>
+<body>
+    <hr>
+    <h1>Lãi kép</h1>
+    <!--
+            A = P * (1+r/n)^(n*t) 
+    A: Số tiền sau thời gian đầu tư (bao gồm cả gốc và lãi).
+    P: Số tiền gốc ban đầu.
+    r: Lãi suất hàng năm (dưới dạng thập phân, ví dụ 8% thì r = 0.08).
+    n: Số lần ghép lãi trong 1 năm (ví dụ: nếu lãi ghép hàng tháng thì n = 12).
+    t: Thời gian gửi (tính theo năm).    -->
+
+    <input type="number" id="tiengoc" placeholder="Số tiền gốc (VNĐ)">
+    <input type="number" id="laisuat" placeholder="Lãi suất (%) ">
+    <input type="number" id="thoigiangui" placeholder="Thời gian gửi (năm)">
+    <button type="button" onclick="laikep();">Tính lãi</button>
+    <p id="result12"></p>
+    <script>
+        function laikep() {
+            let tiengoc=parseFloat(document.getElementById('tiengoc').value);
+            let laisuat=parseFloat(document.getElementById('laisuat').value);
+            let thoigiangui=parseFloat(document.getElementById('thoigiangui').value);
+            laisuat=laisuat/100;
+            let result12=tiengoc* Math.pow((1 + laisuat/1200),(12*thoigiangui));
+            result12=result12.toFixed(3);
+            document.getElementById('result12').innerHTML='Lãi suất: '+result12+' VNĐ';                 
+        }
+    </script>
+</body>
+</html>
